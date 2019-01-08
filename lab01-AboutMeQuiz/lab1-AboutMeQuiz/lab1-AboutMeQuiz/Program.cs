@@ -45,7 +45,7 @@ namespace lab1_AboutMeQuiz
 
             //start question five
             string answer5 = Q5();
-            if(answer5=="Friday")
+            if(answer5=="friday")
             {
                 Console.WriteLine("Of course who would not like Friday.");
                 score++;
@@ -98,26 +98,33 @@ namespace lab1_AboutMeQuiz
 
 
          static int Q4()
-        {
+        {  
             Console.WriteLine("How many meals i eat every day?");
             string usertype = Console.ReadLine();
+
+        
+                try
+                {  
+                    int useranstest = Int32.Parse(usertype);
+                    int userans = Int32.Parse(usertype);
+                    return userans;
+                   
+                }
+                catch (FormatException e)
+                {
+     
+                        Console.WriteLine("please enter a number!");
+                        Console.WriteLine(e.Message);
+ 
+                }
+               
+             
+            return 0;
+            }
+
            
-            try
-            {
-               
-                int useranstest = Int32.Parse(usertype);
-               
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine("please enter a number!");
-                Console.WriteLine(e.Message);
-            }
 
-            int userans = Int32.Parse(usertype);
-            return userans;
-
-        }
+        
 
         static string Q5()
         {
