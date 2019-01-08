@@ -5,12 +5,13 @@ namespace lab1_AboutMeQuiz
     class Program
     {
         static void Main(string[] args)
-        {
+        {   //initialize the score
             int score = 0;
             Console.WriteLine("Let's play xia's guessing game!");
-            //start question one
+            //start question one,call Q1 method and return the answer
 
             bool answer1 = Q1();
+            // check if the answer matches mine,if matches socre will be added one point
             if (answer1 == false)
             {
                 Console.WriteLine("Congrats! I dont like cold");
@@ -18,8 +19,9 @@ namespace lab1_AboutMeQuiz
             }
             else Console.WriteLine("Oh NO!I hate cold temperature!");
 
-            //start question two
+            //start question two,call Q2 method and return answer from there
             int answer2 = Q2();
+            //if the answer matches, add 1 point to the score and continue,otherwise continue without adding point 
             if (answer2 == 1)
             {
                 Console.WriteLine("Congrats! I only have one ragdoll kitty his name is Blue");
@@ -27,13 +29,13 @@ namespace lab1_AboutMeQuiz
             }
             else Console.WriteLine("oops! One kitty is enough for me.");
 
-            //start question three
+            //start question three,call Q3 method here and return answer
             bool answer3 = Q3();
             if (answer3 == true) score++;
 
             else Console.WriteLine("oh,you miss this one");
 
-            //start question four
+            //start question four,call Q4 method
             int answer4 = Q4();
             if(answer4 == 4)
             {
@@ -52,6 +54,7 @@ namespace lab1_AboutMeQuiz
             }
             else Console.WriteLine("No.It is Friday");
 
+            //display your final score here
                Console.WriteLine();
 
                Console.WriteLine($"Your final score is {score}");
@@ -62,6 +65,7 @@ namespace lab1_AboutMeQuiz
         {
             Console.WriteLine("Do i like winter time? please choose: yes/no");
             string usertype = Console.ReadLine();
+            //makesure all the string to lowercase 
             string userans = usertype.ToLower();
             if (userans == "yes" || userans == "y") return true;
             else return false;
@@ -70,6 +74,7 @@ namespace lab1_AboutMeQuiz
         {
             Console.WriteLine("How many cats do i keep?");
             string usertype = Console.ReadLine();
+            //convert string type to int
             int userans = Int32.Parse(usertype);
             return userans;
 
@@ -78,20 +83,22 @@ namespace lab1_AboutMeQuiz
         static bool Q3()
         {
             Console.WriteLine("Now you have three chances to guess my favorite fruit!");
-
+            //it starts the for loop for maxium 3 times let users guess
             for (int i = 0; i < 3; i++)
             {
                 Console.WriteLine($"This is your {i + 1} attempt:");
                 string usertype = Console.ReadLine();
+                //convert to int type
                 string userans = usertype.ToLower();
+                //if get the correct answer,loop stops here and return true
                 while (userans == "kiwi")
-                {
+                { 
                     Console.WriteLine("Yes,kiwi is my favorite!");
                     return true;
 
                 }
             }
-
+            //after all three times attemps, no more chance!
             return false;
 
         }
@@ -107,7 +114,7 @@ namespace lab1_AboutMeQuiz
                 {
                     int useranstest = Int32.Parse(usertype);
                     int userans = Int32.Parse(usertype);
-                    return userans;
+                    return userans;//if nothing wrong with the format,will return number 
 
                 }
                 catch (FormatException e)
@@ -118,6 +125,7 @@ namespace lab1_AboutMeQuiz
                 }
                
              }
+           //if still wrong format after three times,return 0 and this will be wrong answer
             return 0;
             }
 
