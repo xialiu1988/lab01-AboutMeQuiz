@@ -99,26 +99,25 @@ namespace lab1_AboutMeQuiz
 
          static int Q4()
         {  
-            Console.WriteLine("How many meals i eat every day?");
-            string usertype = Console.ReadLine();
-
-        
+           //you have three times to type the right format if it is not a number after three times just continue to the Q5
+           for(int i = 0; i < 3; i++) {
+                Console.WriteLine("How many meals i eat every day?");
+                string usertype = Console.ReadLine();
                 try
-                {  
+                {
                     int useranstest = Int32.Parse(usertype);
                     int userans = Int32.Parse(usertype);
                     return userans;
-                   
+
                 }
                 catch (FormatException e)
                 {
-     
-                        Console.WriteLine("please enter a number!");
                         Console.WriteLine(e.Message);
- 
+             
+                  
                 }
                
-             
+             }
             return 0;
             }
 
