@@ -33,9 +33,28 @@ namespace lab1_AboutMeQuiz
 
             else Console.WriteLine("oh,you miss this one");
 
+            //start question four
+            int answer4 = Q4();
+            if(answer4 == 4)
+            {
+                Console.WriteLine("Yes i normally have one more meal than normal people.");
+                score++;
+            }
 
+            else Console.WriteLine("hmm. nice try.");
 
-            Console.WriteLine($"Your final score is {score}");
+            //start question five
+            string answer5 = Q5();
+            if(answer5=="Friday")
+            {
+                Console.WriteLine("Of course who would not like Friday.");
+                score++;
+            }
+            else Console.WriteLine("No.It is Friday");
+
+               Console.WriteLine();
+
+               Console.WriteLine($"Your final score is {score}");
         }
 
 
@@ -76,6 +95,38 @@ namespace lab1_AboutMeQuiz
             return false;
 
         }
+
+
+         static int Q4()
+        {
+            Console.WriteLine("How many meals i eat every day?");
+            string usertype = Console.ReadLine();
+           
+            try
+            {
+               
+                int useranstest = Int32.Parse(usertype);
+               
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("please enter a number!");
+                Console.WriteLine(e.Message);
+            }
+
+            int userans = Int32.Parse(usertype);
+            return userans;
+
+        }
+
+        static string Q5()
+        {
+            Console.WriteLine("what is my favoriate day from Monday - Friday?");
+            string usertype = Console.ReadLine();
+            string userans = usertype.ToLower();
+            return userans;
+        }
+
 
     }
 }
